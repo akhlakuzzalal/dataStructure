@@ -81,15 +81,16 @@ int main()
         cin >> u >> v >> w;
         g.addEdges(u, v, w);
     }
-    /*
-     for (int i = 0; i < vertex; i++)
-     {
-         g.print(i);
-         cout << endl;
-     }
-     */
-
-    // g.BFS(0);
+    cout << "output of Graph is: " << endl;
+    for (int i = 0; i < vertex; i++)
+    {
+        g.print(i);
+        cout << endl;
+    }
+    cout << "output of BFS is: " << endl;
+    g.BFS(0);
+    cout << endl;
+    cout << "output of DFS is: " << endl;
     g.DFS(0);
 
     return 0;
