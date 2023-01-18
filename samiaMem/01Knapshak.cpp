@@ -18,20 +18,38 @@ int knapshak(int wt[], int val[], int n, int W)
                 dp[i][j] = dp[i - 1][j];
         }
     }
+    // selected elements
+    int i = n, j = W;
+    while (i > 0 && j > 0)
+    {
+        if (dp[i][j] != dp[i - 1][j])
+        {
+            cout << "Element " << i << " is selected" << endl;
+            j = j - wt[i - 1];
+            i--;
+        }
+        else
+            i--;
+    }
     return dp[n][W];
 }
 
 int main()
 {
     int n, W;
+    cout << "Enter the value of element & total weight" << endl;
     cin >> n >> W;
     int wt[n], val[n];
+    cout << "enter all weight of elements" << endl;
     for (int i = 0; i < n; i++)
         cin >> wt[i];
+    cout << "Enter all profits of all elements" << endl;
     for (int i = 0; i < n; i++)
         cin >> val[i];
 
-    cout << knapshak(wt, val, n, W) << endl;
+    cout << endl
+         << "The maximum profit from all elements: " << knapshak(wt, val, n, W) << endl
+         << endl;
 
     return 0;
 }
